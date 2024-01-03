@@ -8,6 +8,9 @@ import (
 	"strings"
 )
 
+var test = "#########################################################\n" +
+	"# go  "
+
 type Task struct {
 	Text      string
 	Completed bool
@@ -73,6 +76,7 @@ func addTask(tasks *[]Task) {
 }
 
 func showTasks(tasks []Task) {
+	fmt.Println(test)
 	if len(tasks) == 0 {
 		fmt.Println("No tasks available.")
 		return
@@ -88,6 +92,7 @@ func showTasks(tasks []Task) {
 }
 
 func showMenu() {
+
 	fmt.Println("\nMenu:")
 	fmt.Println("1. Show Tasks")
 	fmt.Println("2. Add Task")
