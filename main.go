@@ -6,10 +6,8 @@ import (
 	"os"
 	"strconv"
 	"strings"
+	"time"
 )
-
-var test = "#########################################################\n" +
-	"# go  "
 
 type Task struct {
 	Text      string
@@ -76,7 +74,7 @@ func addTask(tasks *[]Task) {
 }
 
 func showTasks(tasks []Task) {
-	fmt.Println(test)
+
 	if len(tasks) == 0 {
 		fmt.Println("No tasks available.")
 		return
@@ -92,6 +90,7 @@ func showTasks(tasks []Task) {
 }
 
 func showMenu() {
+	ascii()
 
 	fmt.Println("\nMenu:")
 	fmt.Println("1. Show Tasks")
@@ -106,4 +105,13 @@ func getUserInput(prompt string) string {
 	fmt.Print(prompt)
 	input, _ := reader.ReadString('\n')
 	return strings.TrimSpace(input)
+}
+
+func ascii() {
+	file, err := os.ReadFile("./ascii.txt")
+	if err != nil {
+		return
+	}
+	fmt.Println(string(file))
+	time.Sleep(time.Second * 2)
 }
